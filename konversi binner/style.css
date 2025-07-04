@@ -1,0 +1,285 @@
+/* Universal Box Sizing */
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #282c34;
+    color: #abb2bf;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    justify-content: center;
+    width: fit-content;
+    min-width: 100%;
+    padding-bottom: 20px;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #61afef #3a404b;
+}
+
+.main-wrapper::-webkit-scrollbar {
+    height: 10px;
+}
+
+.main-wrapper::-webkit-scrollbar-track {
+    background: #3a404b;
+    border-radius: 5px;
+}
+
+.main-wrapper::-webkit-scrollbar-thumb {
+    background-color: #61afef;
+    border-radius: 5px;
+    border: 2px solid #3a404b;
+}
+
+.container {
+    background-color: #3a404b;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    flex-shrink: 0;
+    min-width: 400px;
+    max-width: 550px;
+    width: auto;
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #61afef;
+    margin-bottom: 20px;
+}
+
+/* Input text */
+.input-section input[type="text"],
+.calc-input-section input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #5c6370;
+    border-radius: 5px;
+    background-color: #282c34;
+    color: #abb2bf;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.input-section input[type="text"]:focus,
+.calc-input-section input[type="text"]:focus {
+    outline: none;
+    border-color: #61afef;
+}
+
+/* Select (Dropdown) styles */
+.input-section select,
+.calc-input-section select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #5c6370;
+    border-radius: 5px;
+    background-color: #282c34;
+    color: #abb2bf;
+    font-size: 1em;
+    appearance: none; /* g */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23abb2bf%22%20d%3D%22M287%2069.4L154.3%20202.1c-2.4%202.4-5.8%204.1-8.9%204.1s-6.5-1.7-8.9-4.1L5.4%2069.4c-4.8-4.8-4.8-12.5%200-17.3s12.5-4.8%2017.3%200L145.7%20172.1c1.2%201.2%202.7%201.7%204.1%201.7s2.9-0.5%204.1-1.7l123.1-122.9c4.8-4.8%2012.5-4.8%2017.3%200S291.8%2064.6%20287%2069.4z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    cursor: pointer;
+}
+
+.input-section select:focus,
+.calc-input-section select:focus {
+    outline: none;
+    border-color: #61afef;
+}
+
+/* elements in converter */
+.select-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* Jarak antar dropdown */
+    margin-bottom: 20px;
+}
+
+.select-group > div {
+    flex: 1; /* div */
+}
+
+.input-section button, .operator-buttons button {
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.input-section button {
+    background-color: #98c379;
+}
+
+.input-section button:hover {
+    background-color: #83b965;
+    transform: translateY(-2px);
+}
+
+.operator-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.operator-buttons button {
+    background-color: #61afef;
+    padding: 12px 20px;
+    font-size: 1.5em;
+    flex: 1;
+    margin: 0 5px;
+}
+
+.operator-buttons button:hover {
+    background-color: #4c96de;
+    transform: translateY(-2px);
+}
+
+.result-section, .steps-section {
+    background-color: #282c34;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.result-section h2, .steps-section h2 {
+    color: #61afef;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.conversion-results-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Hanya satu kolom untuk hasil */
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.result-item {
+    background-color: #4b5263;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.result-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.result-item strong {
+    display: block;
+    color: #e5c07b;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.result-item span {
+    font-size: 1.5em; /* Ukuran font lebih besar untuk hasil tunggal */
+    font-weight: bold;
+    color: #c678dd;
+}
+
+.calc-result-section .result-item {
+    background-color: #4b5263;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.calc-result-section .result-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.calc-result-section .result-item strong {
+    display: block;
+    color: #e5c07b;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.calc-result-section .result-item span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #a0f0a0;
+}
+
+
+#conversionSteps ul, #calculationSteps ul {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+#conversionSteps li, #calculationSteps li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+#conversionSteps li.show, #calculationSteps li.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.error {
+    color: #ff6347;
+    margin-top: 10px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.error.show {
+    opacity: 1;
+    transform: translateY(0);
+}

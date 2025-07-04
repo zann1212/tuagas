@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konverter & Kalkulator Bilangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+
+        <div class="container converter-container">
+            <h1>Konverter Bilangan</h1>
+
+            <div class="input-section">
+                <label for="convertInput">Masukkan Bilangan:</label>
+                <input type="text" id="convertInput" placeholder="Contoh: 1011 (biner) / 25 (desimal)">
+
+                <div class="select-group">
+                    <div>
+                        <label for="inputBase">Basis Input:</label>
+                        <select id="inputBase">
+                            <option value="2">Biner</option>
+                            <option value="10" selected>Desimal</option>
+                            <option value="8">Oktal</option>
+                            <option value="16">Heksadesimal</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="outputBase">Basis Output:</label>
+                        <select id="outputBase">
+                            <option value="2">Biner</option>
+                            <option value="10">Desimal</option>
+                            <option value="8">Oktal</option>
+                            <option value="16" selected>Heksadesimal</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button onclick="convertNumber()">Konversi</button>
+            </div>
+
+            <div class="result-section">
+                <h2>Hasil Konversi:</h2>
+                <div class="conversion-results-grid">
+                    <div class="result-item">
+                        <strong>Hasil:</strong> <span id="convertedResult"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="steps-section">
+                <h2>Langkah Pengerjaan Konversi:</h2>
+                <div id="conversionSteps">
+                    </div>
+            </div>
+        </div>
+
+        <div class="container calculator-container">
+            <h1>Kalkulator Biner</h1> <div class="calc-input-section">
+                <label for="binaryCalcInput1">Bilangan Biner 1:</label> <input type="text" id="binaryCalcInput1" placeholder="Contoh: 101">
+
+                <label for="binaryCalcInput2">Bilangan Biner 2:</label> <input type="text" id="binaryCalcInput2" placeholder="Contoh: 11">
+
+                <div class="operator-buttons">
+                    <button onclick="calculateBinary('add')">+</button> <button onclick="calculateBinary('subtract')">-</button>
+                    <button onclick="calculateBinary('multiply')">×</button>
+                    <button onclick="calculateBinary('divide')">÷</button>
+                </div>
+            </div>
+
+            <div class="calc-result-section result-section">
+                <h2>Hasil Kalkulasi:</h2>
+                <div class="result-item">
+                    <strong>Hasil:</strong> <span id="calcResult"></span>
+                </div>
+            </div>
+
+            <div class="steps-section">
+                <h2>Langkah Pengerjaan Kalkulasi:</h2>
+                <div id="calculationSteps">
+                    </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
